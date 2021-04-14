@@ -15,11 +15,11 @@ use Illuminate\Support\Str;
 
 final class Factory
 {
-    private Filesystem $filesystem;
+    private $filesystem;
 
-    private IconsManifest $manifest;
+    private $manifest;
 
-    private ?FilesystemFactory $disks;
+    private $disks;
 
     private array $config;
 
@@ -71,8 +71,10 @@ final class Factory
         $paths = (array) ($options['paths'] ?? $options['path'] ?? []);
 
         $options['paths'] = array_filter(array_map(
-            fn ($path) => $path !== '/' ? rtrim($path, '/') : $path,
-            $paths,
+            function($path) {
+                return $path !== '/' ? rtrim($path, '/') : $path;
+            },
+            $paths
         ));
 
         if (empty($options['paths'])) {

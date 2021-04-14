@@ -11,9 +11,9 @@ final class Svg implements Htmlable
 {
     use RendersAttributes;
 
-    private string $name;
+    private $name;
 
-    private string $contents;
+    private $contents;
 
     public function __construct(string $name, string $contents, array $attributes = [])
     {
