@@ -21,11 +21,11 @@ final class Factory
 
     private $disks;
 
-    private array $config;
+    private $config;
 
-    private array $sets = [];
+    private $sets = [];
 
-    private array $cache = [];
+    private $cache = [];
 
     public function __construct(
         Filesystem $filesystem,
